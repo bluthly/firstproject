@@ -5,7 +5,7 @@
     <!--<router-view/>-->
     <!--<first/>-->
 
-    <v-header></v-header>
+    <v-header :seller="seller" ></v-header>
     <!--中间内容块-->
     <div class="tab">
       <div class="tab-item">
@@ -28,7 +28,11 @@
 <script>
   // import first from './components/First'
   import header from './components/Header'
-
+  let appData = require('../data.json')
+  let seller = appData.seller
+  let goods = appData.goods
+  let ratings = appData.ratings
+  // const ERR_OK = 0
   export default {
     name: 'App',
     components: {
@@ -36,12 +40,27 @@
       'v-header': header
     },
     data () {
-      return {itemList: [ ]}
+      return {
+        'seller': {},
+        'goods': {},
+        'ratings': {}
+      }
     },
     created: function () {
-      this.$http.get('api/seller').then((response) => {
-        console.log(response)
-      })
+      console.log(seller)
+      this.seller = seller
+      this.goods = goods
+      this.ratings = ratings
+      // this.$http.get('http://www.baidu.com').then((response) => {
+      //   console.log(response)
+      // })
+      // this.$http.get('/api/seller?id=' + this.seller.id).then((response) => {
+      //   console.log(response)
+      //   response = response.body
+      //   if (response.errno === ERR_OK) {
+      //     this.seller = Object.assign({}, this.seller, response.data)
+      //   }
+      // })
     }
 
   }

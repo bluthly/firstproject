@@ -3,11 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import resource from './resource'
+// import resource from './resource'
 // import Router from 'vue-router'
 // import Goods from './components/goods/goods'
 // import VueRouter from 'vue-router'
 
+import vueSource from 'vue-resource'
+
+Vue.use(vueSource)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
@@ -34,7 +37,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
-  resource,
+  // resource,
   components: {App},
   template: '<App/>'
 })

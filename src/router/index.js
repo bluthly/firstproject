@@ -11,7 +11,7 @@ Vue.use(Router)
 const routes = [
   {
     path: '/',
-    name: '商品',
+    name: '首页',
     redirect: 'goods'
   },
   {
